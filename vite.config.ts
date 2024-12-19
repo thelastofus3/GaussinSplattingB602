@@ -1,6 +1,7 @@
 import { defineConfig } from "vite";
 
 export default defineConfig({
+    base: "/GaussinSplattingB602/",
     plugins: [
         {
             name: "configure-response-headers",
