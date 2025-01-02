@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/register.css">
+    <title>Register</title>
+</head>
+<body>
+<div class="container">
+    <h1>Register</h1>
+    <div>
+        <div class="input-group">
+            <input type="text" placeholder="Enter your name" id="name" required />
+        </div>
+        <div class="input-group">
+            <input type="email" placeholder="Enter your email" id="email" required />
+        </div>
+        <div class="input-group">
+            <input type="password" placeholder="Create password" id="password" required />
+            <div class="password-requirements">
+                Password must contain at least 8 characters
+            </div>
+        </div>
+        <div class="input-group">
+            <input type="password" placeholder="Confirm password" id="confirmPassword" required />
+        </div>
+        <div class="terms">
+            <input type="checkbox" id="terms" required />
+            <label for="terms">I agree to the Terms and Conditions</label>
+        </div>
+        <button class="btn" onclick="register()">Create Account</button>
+        <a href="index.html" class="toggle-link">Already have an account? Sign in</a>
+    </div>
+</div>
+
+<script>
+    function register() {
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+        const confirmPassword = document.getElementById('confirmPassword').value;
+        const terms = document.getElementById('terms').checked;
+
+        if (password !== confirmPassword) {
+            alert("Passwords don't match!");
+            return;
+        }
+
+        if (!terms) {
+            alert("Please agree to the Terms and Conditions");
+            return;
+        }
+
+        console.log('Registering with', {
+            name,
+            email,
+            password,
+            terms
+        });
+        // Logic for registration
+    }
+</script>
+</body>
+</html>

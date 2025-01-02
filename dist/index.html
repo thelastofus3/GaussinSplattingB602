@@ -3,24 +3,36 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Vite App</title>
-<script type="importmap">
-    {
-        "imports": {
-            "three": "https://unpkg.com/three@0.157.0/build/three.module.js",
-            "three/addons/": "https://unpkg.com/three@0.157.0/examples/jsm/",
-            "@mkkellogg/gaussian-splats-3d": "./lib/gaussian-splats-3d.module.js"
-        }
-    }
-</script>
-  <script type="module" crossorigin src="/GaussinSplattingB602/assets/index-jeI7rVje.js"></script>
-  <link rel="stylesheet" crossorigin href="/GaussinSplattingB602/assets/index-CtfSZd3n.css">
+    <title>Login</title>
+  <link rel="stylesheet" crossorigin href="/GaussinSplattingB602/assets/index-BSnYlz6s.css">
 </head>
 <body>
-<div id="app">
+<div class="container">
+    <h1>Login</h1>
+    <div>
+        <div class="input-group">
+            <input type="email" placeholder="Enter your email" id="email" required />
+        </div>
+        <div class="input-group">
+            <input type="password" placeholder="Enter your password" id="password" required />
+        </div>
+        <button class="btn" onclick="login()">Login</button>
+        <a href="register.html" class="toggle-link">Don't have an account? Sign up</a>
+    </div>
+    <button class="btn" onclick="goToMain()">Go to Main</button>
 </div>
 
+<script>
+    function login() {
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+        console.log('Logging in with', email, password);
+        // Logic for login verification
+    }
 
-<script type="text/javascript" src="AgoraRTC_N-4.22.1.js"></script>
+    function goToMain() {
+        window.location.href = 'main.html';
+    }
+</script>
 </body>
 </html>
