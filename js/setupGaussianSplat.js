@@ -8,7 +8,7 @@ export const viewer = new GaussianSplats3D.DropInViewer({
 viewer.addSplatScenes(
     [
         {
-            path: 'assets/B601.splat',
+            path: 'public/assets/B601.splat',
             splatAlphaRemovalThreshold: 10,
             rotation: new THREE.Quaternion().setFromUnitVectors(new THREE.Vector3(0, 0, 0).normalize(), new THREE.Vector3(0, 0, 0)).toArray()
         }

@@ -17,19 +17,15 @@
         </div>
         <div class="input-group">
             <input type="password" placeholder="Create password" id="password" required />
-            <div class="password-requirements">
-                Password must contain at least 8 characters
-            </div>
+<!--            <div class="password-requirements">-->
+<!--                Password must contain at least 8 characters-->
+<!--            </div>-->
         </div>
         <div class="input-group">
             <input type="password" placeholder="Confirm password" id="confirmPassword" required />
         </div>
-        <div class="terms">
-            <input type="checkbox" id="terms" required />
-            <label for="terms">I agree to the Terms and Conditions</label>
-        </div>
         <button class="btn" onclick="register()">Create Account</button>
-        <a href="index.html" class="toggle-link">Already have an account? Sign in</a>
+        <a href="/" class="toggle-link">Already have an account? Sign in</a>
     </div>
 </div>
 
@@ -39,25 +35,27 @@
         const email = document.getElementById('email').value;
         const password = document.getElementById('password').value;
         const confirmPassword = document.getElementById('confirmPassword').value;
-        const terms = document.getElementById('terms').checked;
 
         if (password !== confirmPassword) {
             alert("Passwords don't match!");
             return;
         }
 
-        if (!terms) {
-            alert("Please agree to the Terms and Conditions");
-            return;
-        }
-
-        console.log('Registering with', {
-            name,
-            email,
-            password,
-            terms
-        });
-        // Logic for registration
+        fetch('http://localhost:3000/register', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name, email, password }),
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.message === 'Registration successful') {
+                    alert(data.message);
+                    window.location.href = '/index';
+                } else {
+                    alert(data.message);
+                }
+            })
+            .catch(error => console.error('Error:', error));
     }
 </script>
 </body>

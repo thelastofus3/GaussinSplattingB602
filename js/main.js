@@ -18,7 +18,7 @@ threeScene.add(controls.getObject());
 const loader = new GLTFLoader();
 let monitor1, monitor2;
 loader.load(
-    'assets/tv_gs.gltf',
+    'public/assets/tv_gs.gltf',
     (gltf) => {
         monitor1 = gltf.scene;
         monitor1.traverse((node) => {
@@ -43,7 +43,7 @@ loader.load(
 );
 
 loader.load(
-    'assets/tv_gs.gltf',
+    'public/assets/tv_gs.gltf',
     (gltf) => {
         monitor2 = gltf.scene;
         monitor2.traverse((node) => {
